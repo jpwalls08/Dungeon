@@ -32,13 +32,23 @@
         public static Rooms GetRoom()
         {
             Rooms r1 = new Rooms("This is dark and stinky", "Layer");
-            return r1;
+             
             
             Rooms r2 = new Rooms("This is hot and stinky", "Layer");
-            return r2;
+            
             
             Rooms r3 = new Rooms("This is cold and stinky", "Layer");
-            return r3;
+
+            Rooms[] buildings =
+            {
+                r1, r2, r3
+            };
+
+            Random rand = new Random();
+            int index = rand.Next(buildings.Length);
+
+            return buildings[index];
+            
         }
         //public override string ToString()
         //{
