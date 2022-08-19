@@ -77,7 +77,7 @@ namespace DungeonApplication
 
             do
             {
-                Console.WriteLine("Choose your\n" +
+                Console.WriteLine("Hurry what will you do?:\n" +
                     "A) Attack\n" +
                     "B) Run Away\n" +
                     "C) Character Info\n" +
@@ -85,7 +85,8 @@ namespace DungeonApplication
                     "E) Exit");
 
                 //ConsoleKey userAction = Console.ReadKey(true).Key;
-                string userAction = Console.ReadKey().ToUpper();
+                string userAction = Console.ReadKey(true).Key.ToUpper();
+                Console.Clear();
 
                 switch (userAction)
                 {
@@ -93,18 +94,20 @@ namespace DungeonApplication
                     case "A":
                         Console.WriteLine("Attack");
 
+                        if
                         {
                             Console.WriteLine("You Won!");
-                            return;
+
+                            break;
                         }
                         
 
-                        else
+                        else 
                         {
 
                             Console.WriteLine("You Lost.");
 
-                            break;
+                            return;
                         }
                     case "B":
                         
