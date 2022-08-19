@@ -50,8 +50,8 @@ namespace DungeonApplication
 
 
 
-
             bool mainLoop = true;
+
             do
             {
                 Random rand = new Random();
@@ -94,13 +94,12 @@ namespace DungeonApplication
                     case "A":
                         Console.WriteLine("Attack");
 
-                        if
+                        if (true)
                         {
                             Console.WriteLine("You Won!");
 
                             break;
                         }
-                        
 
                         else 
                         {
@@ -109,6 +108,7 @@ namespace DungeonApplication
 
                             return;
                         }
+
                     case "B":
                         
                         Console.WriteLine("Run Away");
@@ -128,13 +128,10 @@ namespace DungeonApplication
 
                     case "E":
                         Console.WriteLine("Thank you for playing!");
-                        innerLoop = true;
-                        break;
-
-
+                        exit = true;
+                        return;
 
                 }//end switch
-
 
             } while (innerLoop);//end do
 

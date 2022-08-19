@@ -49,7 +49,23 @@
 
         } //end Character
 
-        //TODO Methods
+        public override string ToString()
+        {
+            return $"Name: {Name}";
+            return $"Damage: {Damage}";
+            return $"Block: {Block}";
+            return $"MaxHealth: {MaxHealth}";
+            return $"MinHealth: {MinHealth}";
+        }
         
+        public static Character GetCharacter()
+        {
+            Character 
+        }
+
+
+
+        //TODO Methods
+
     }
 }
