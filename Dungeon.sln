@@ -5,15 +5,17 @@ VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoomLibrary", "RoomLibrary\RoomLibrary.csproj", "{542F5B7E-85E6-407B-B130-B7531AF895EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DungeonExamples", "DungeonExamples\DungeonExamples.csproj", "{EE83FDB9-6944-4406-80EA-BC48CE407DA5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DungeonExamples", "DungeonExamples\DungeonExamples.csproj", "{EE83FDB9-6944-4406-80EA-BC48CE407DA5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CharacterLibrary", "CharacterCreator\CharacterLibrary.csproj", "{580449FD-B7CE-40E6-8C4F-34D9835715AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CharacterLibrary", "CharacterCreator\CharacterLibrary.csproj", "{580449FD-B7CE-40E6-8C4F-34D9835715AD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExampleFolder", "ExampleFolder", "{72C95705-8849-41E7-8BFF-2ACD8AA9216F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DungeonLibrary", "DungeonLibrary", "{A5350DAF-D1B2-4881-90A1-1F59BF12B93B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DungeonApplication", "DungeonApplication\DungeonApplication.csproj", "{C24DCD6F-F49B-40C9-84EC-F067C2897207}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DungeonApplication", "DungeonApplication\DungeonApplication.csproj", "{C24DCD6F-F49B-40C9-84EC-F067C2897207}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeaponMenu", "WeaponMenu\WeaponMenu.csproj", "{DDEFC7B7-20FD-4E65-BF13-D248002EC6BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +39,10 @@ Global
 		{C24DCD6F-F49B-40C9-84EC-F067C2897207}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C24DCD6F-F49B-40C9-84EC-F067C2897207}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C24DCD6F-F49B-40C9-84EC-F067C2897207}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDEFC7B7-20FD-4E65-BF13-D248002EC6BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDEFC7B7-20FD-4E65-BF13-D248002EC6BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDEFC7B7-20FD-4E65-BF13-D248002EC6BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDEFC7B7-20FD-4E65-BF13-D248002EC6BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -45,6 +51,7 @@ Global
 		{542F5B7E-85E6-407B-B130-B7531AF895EC} = {A5350DAF-D1B2-4881-90A1-1F59BF12B93B}
 		{EE83FDB9-6944-4406-80EA-BC48CE407DA5} = {72C95705-8849-41E7-8BFF-2ACD8AA9216F}
 		{580449FD-B7CE-40E6-8C4F-34D9835715AD} = {A5350DAF-D1B2-4881-90A1-1F59BF12B93B}
+		{DDEFC7B7-20FD-4E65-BF13-D248002EC6BE} = {A5350DAF-D1B2-4881-90A1-1F59BF12B93B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FBA41919-EF2A-4489-9614-21AFAF57B615}
