@@ -14,18 +14,14 @@ namespace DungeonApplication
         static void Main(string[] args)
         {
 
+            Game game = new Game();
+            string name = game.GetUser();
 
-            Console.WriteLine("Dungeon Looping");
-            //TODO Create a player
-            Console.WriteLine("Welcome traveler, may I ask whom am I speaking to?\n");
-
-            Console.WriteLine("\nEnter Your Character Name\n");
-            string name = Console.ReadLine();
             do
             {
 
 
-                Console.WriteLine("Not sure if this is the place you are wanting to be {0}...", name);
+                Console.WriteLine($"Not sure if this is the place you are wanting to be {name}...");
                 Console.WriteLine("Enter Y to keep moving forward");
                 Console.WriteLine("Enter N to Exit");
                 string option = Console.ReadLine().ToUpper();
@@ -35,7 +31,7 @@ namespace DungeonApplication
 
                 {
                     Console.WriteLine("I reckon you head out West, over yonder. There you will come across a body over water that is rid of any enemies");
-                    return;
+                    return; //pulls and exits the method
                 }
 
 
@@ -43,7 +39,7 @@ namespace DungeonApplication
                 {
                     Console.WriteLine("You're a brave soul to embark on this journey");
 
-                    break;
+                    break;// pulls and breaks out of iterator
                 }
 
             } while (true);
@@ -73,7 +69,7 @@ namespace DungeonApplication
             } while (mainLoop);//end do
 
 
-            bool innerLoop = true;
+            bool exit = true;
 
             do
             {
@@ -85,7 +81,7 @@ namespace DungeonApplication
                     "E) Exit");
 
                 //ConsoleKey userAction = Console.ReadKey(true).Key;
-                string userAction = Console.ReadKey(true).Key.ToUpper();
+                string userAction = Console.ReadKey(true).Key.ToString().ToUpper();
                 Console.Clear();
 
                 switch (userAction)
@@ -93,12 +89,13 @@ namespace DungeonApplication
 
                     case "A":
                         Console.WriteLine("Attack");
+                        int win = new Random().Next(101);
 
-                        if (true)
+                        if (win > 10)
                         {
                             Console.WriteLine("You Won!");
 
-                            break;
+                            
                         }
 
                         else 
@@ -106,8 +103,9 @@ namespace DungeonApplication
 
                             Console.WriteLine("You Lost.");
 
-                            return;
+                            exit = false;
                         }
+                        break;
 
                     case "B":
                         
@@ -128,12 +126,13 @@ namespace DungeonApplication
 
                     case "E":
                         Console.WriteLine("Thank you for playing!");
-                        exit = true;
-                        return;
+                        exit = false;
+
+                        break;
 
                 }//end switch
 
-            } while (innerLoop);//end do
+            } while (exit);//end do
 
 
         }//end Main()

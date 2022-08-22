@@ -3,10 +3,10 @@
     public class Character
     {
         private string _name;
-        private int _damage;
+        private int _damage;//hitChance
         private int _block;
-        private int _maxHealth;
-        private int _minHealth;
+        private int _maxHealth;//maxLife
+        private int _minHealth;//life
 
         //properties
         public string Name
@@ -39,6 +39,10 @@
             }
         }//end minHeath     
 
+        public Character()
+        {
+
+        }
        public Character(string name, int damage, int block, int maxHealth, int minHealth)
         {
             Name = name;
@@ -49,20 +53,36 @@
 
         } //end Character
 
-        public override string ToString()
+        public int CalcDamage()
         {
-            return $"Name: {Name}";
-            return $"Damage: {Damage}";
-            return $"Block: {Block}";
-            return $"MaxHealth: {MaxHealth}";
-            return $"MinHealth: {MinHealth}";
+            return 0;
         }
-        
-        public static Character GetCharacter()
+        public int CalcBlock()
         {
-            Character 
+            return _block;
+        }
+        public int CalcMaxHealth()
+        {
+            return _maxHealth;
+        }
+        public int CalcMinHealth()
+        {
+            return _minHealth;
         }
 
+        public override string ToString()
+        {
+            return string.Format("******** {0} ********\n" +
+                "Health: {1} of {2},\n" +
+                "Damage: {3}%\n" +
+                "Block: {4}",
+                Name,
+                CalcMinHealth(),
+                CalcMaxHealth(),
+                CalcBlock());
+        }
+        
+     
 
 
         //TODO Methods
