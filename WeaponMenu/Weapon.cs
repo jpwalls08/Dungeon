@@ -1,5 +1,12 @@
 ﻿namespace WeaponMenu
 {
+    public enum WeaponType
+    {
+        Sword,
+        Knife,
+        Mace,
+        Spear,
+    }
 
     public class Weapon
     {
@@ -28,35 +35,30 @@
             get { return _bonusHitChance; }
             set { _bonusHitChance = value; }
         }
+        public WeaponType Type{ get; set; }
 
-        public enum WeaponType
-        {
-            Sword,
-            Knife,
-            Mace,
-            Spear,
-        }
-
-        public Weapon(string name, int maxdamage, int minDamage, int bonusHitChance, bool TwoHanded)
+        public Weapon(string name, int maxdamage, int minDamage, int bonusHitChance, bool TwoHanded, WeaponType type)
         {
             Name = name;
             MaxDamage = maxdamage;
             MinDamage = minDamage;
             BonusHitChance = bonusHitChance;
             IsTwoHanded = TwoHanded;
-            
+            Type = type;            
         }
         public override string ToString()
         {
             return string.Format("******** {0} ********\n" +
                 "Health: {1} of {2},\n" +
                 "Damage: {3}%\n" +
-                "Block: {4}",
+                "Block: {4}" +
+                "Weapon Type: {5}",
                 Name,
                 MaxDamage,
                 MinDamage,
                 BonusHitChance,
-                IsTwoHanded ? "yes" : "no");
+                IsTwoHanded ? "yes" : "no",
+                Type);
         }
 
     }

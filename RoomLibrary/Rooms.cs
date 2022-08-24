@@ -44,10 +44,7 @@
                 r1, r2, r3
             };
 
-            Random rand = new Random();
-            int index = rand.Next(buildings.Length);
-
-            return buildings[index];
+            return buildings[new Random().Next(buildings.Length)];
             
         }
         //public override string ToString()

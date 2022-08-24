@@ -13,8 +13,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DungeonApplication", "Dunge
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeaponMenu", "WeaponMenu\WeaponMenu.csproj", "{DDEFC7B7-20FD-4E65-BF13-D248002EC6BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonsterLibrary", "MonsterLibrary\MonsterLibrary.csproj", "{945D338A-117C-4427-B003-A8BB4254258A}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,10 +35,6 @@ Global
 		{DDEFC7B7-20FD-4E65-BF13-D248002EC6BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DDEFC7B7-20FD-4E65-BF13-D248002EC6BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DDEFC7B7-20FD-4E65-BF13-D248002EC6BE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{945D338A-117C-4427-B003-A8BB4254258A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{945D338A-117C-4427-B003-A8BB4254258A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{945D338A-117C-4427-B003-A8BB4254258A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{945D338A-117C-4427-B003-A8BB4254258A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -49,7 +43,6 @@ Global
 		{542F5B7E-85E6-407B-B130-B7531AF895EC} = {A5350DAF-D1B2-4881-90A1-1F59BF12B93B}
 		{580449FD-B7CE-40E6-8C4F-34D9835715AD} = {A5350DAF-D1B2-4881-90A1-1F59BF12B93B}
 		{DDEFC7B7-20FD-4E65-BF13-D248002EC6BE} = {A5350DAF-D1B2-4881-90A1-1F59BF12B93B}
-		{945D338A-117C-4427-B003-A8BB4254258A} = {A5350DAF-D1B2-4881-90A1-1F59BF12B93B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FBA41919-EF2A-4489-9614-21AFAF57B615}

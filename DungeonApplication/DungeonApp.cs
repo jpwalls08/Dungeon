@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using RoomLibrary;
 using CharacterLibrary;
-
+using WeaponMenu;
 
 namespace DungeonApplication
 {
@@ -14,69 +14,113 @@ namespace DungeonApplication
         static void Main(string[] args)
         {
 
-            Game game = new Game();
-            string name = game.GetUser();
+            //Game game = new Game();
+            //string name = game.GetUser();
+            #region Old Loop
+            //do
+            //{
 
+
+            //    Console.WriteLine($"Not sure if this is the place you are wanting to be {name}...");
+            //    Console.WriteLine("Enter Y to keep moving forward");
+            //    Console.WriteLine("Enter N to Exit");
+            //    string option = Console.ReadLine().ToUpper();
+
+
+            //    if (option == "N")
+
+            //    {
+            //        Console.WriteLine("I reckon you head out West, over yonder. There you will come across a body over water that is rid of any danger");
+            //        return; //pulls and exits the method
+            //    }
+
+
+            //    if (option == "Y")
+            //    {
+            //        Console.WriteLine("You're a brave soul to embark on this journey");
+
+            //        break;// pulls and breaks out of iterator
+            //    }
+
+            //} while (true);
+            #endregion
+
+
+            //Console.WriteLine("Dungeon Looping");
+            //TODO Create a player
+
+            Console.WriteLine("Welcome traveler, may I ask whom I'm speaking with?\n");
+
+            string name;
             do
             {
+                Console.WriteLine("\nEnter Your Character Name\n");
+                name = Console.ReadLine();
 
-
-                Console.WriteLine($"Not sure if this is the place you are wanting to be {name}...");
-                Console.WriteLine("Enter Y to keep moving forward");
-                Console.WriteLine("Enter N to Exit");
-                string option = Console.ReadLine().ToUpper();
-
-
-                if (option == "N")
-
-                {
-                    Console.WriteLine("I reckon you head out West, over yonder. There you will come across a body over water that is rid of any enemies");
-                    return; //pulls and exits the method
-                }
-
-
-                if (option == "Y")
-                {
-                    Console.WriteLine("You're a brave soul to embark on this journey");
-
-                    break;// pulls and breaks out of iterator
-                }
+                if (name.Length > 1)
+                    break;
 
             } while (true);
+            
+
+            //TODO Create a player object - player customization?
+
+            var races = Enum.GetValues(typeof(Race));
+            foreach(var race in races)
+            //{
+            //    Console.WriteLine($"{index}) {race}");
+            //    index++;
+            //}
+            {
+                Console.WriteLine($"{(int)race + 1} : {race}");//+1 displays in console
+            }
+            string userInput = Console.ReadKey(true).KeyChar.ToString();
+            
+            int r = int.Parse(userInput) - 1;//key is reading a key and stores it in the propety
+            Console.Clear();
+            Race race1 = (Race)r;//casting from an int(r) to a variable(Race)
 
 
 
+            //TODO Weapon Object - List of weapons?
+            Weapon sword = new Weapon("sword", 8, 1, 5, true, WeaponType.Sword);
+            Player player = new Player(name, 70, 5, 40, 40, sword, race1);
+            Console.WriteLine(player.ToString());
             bool mainLoop = true;
 
             do
             {
+                /*TODO generate a room
+                * Implement GetRoom()
+                */
                 Random rand = new Random();
 
                 Rooms r1 = Rooms.GetRoom();
 
-                //TODO retrieve a random monster
-                Console.WriteLine("You have stubbled upon (Insert Monster Here)\n");
-                Console.WriteLine("");
-                /*TODO generate a room
-                * Implement GetRoom()
-                */
-
                 Console.WriteLine(r1);
                 Console.WriteLine("");
+
+
+                //TODO retrieve a random monster
+                Monster monster = Monster.GetMonster();
+                Console.WriteLine("You have stubbled upon..." + monster.Name);
+                Console.WriteLine("");
+
+
 
                 break;
 
             } while (mainLoop);//end do
 
-
-            bool exit = true;
+            //bool reload = false;//boolean for inner loop. Reload new monster/room when true
+            bool exit = true;//inner loop
 
             do
             {
-                Console.WriteLine("Hurry what will you do?:\n" +
+                Console.WriteLine("\n\nHurry what will you do?:\n\n" +
                     "A) Attack\n" +
                     "B) Run Away\n" +
-                    "C) Character Info\n" +
+                    "C) Player Info\n" +
                     "D) Monster Info\n" +
                     "E) Exit");
 
@@ -110,23 +154,26 @@ namespace DungeonApplication
                     case "B":
                         
                         Console.WriteLine("Run Away");
-                        RunAway();
+                        exit = true;//reload
                         break;
 
                     case "C":
-                        Console.WriteLine("Character Info");
+                        Console.WriteLine("Player Info");//player
+                        Console.WriteLine(player);
                         //1. TODO CountNumbers()
-                        CharacterInfo();
+                        
                         break;
 
                     case "D":
                         Console.WriteLine("Monster Info");
-                        MonsterInfo();
+                        //MonsterInfo();
+                        Console.WriteLine(Monster.GetMonster().ToString());
                         break;
 
                     case "E":
                         Console.WriteLine("Thank you for playing!");
-                        exit = false;
+                        //Console.ReadLine();
+                        exit = false;//
 
                         break;
 

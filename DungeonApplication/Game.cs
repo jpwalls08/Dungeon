@@ -8,15 +8,15 @@ namespace DungeonApplication
 {
     public class Game
     {
-        public string GetUser()
-        {
+        //public string GetUser()
+        //{
 
-            Console.WriteLine("Dungeon Looping");
-            //TODO Create a player
-            Console.WriteLine("Welcome traveler, may I ask whom am I speaking to?\n");
+        //    //Console.WriteLine("Dungeon Looping");
+        //    //TODO Create a player
+        //    Console.WriteLine("Welcome traveler, may I ask whom I'm speaking with?\n");
 
-            Console.WriteLine("\nEnter Your Character Name\n");
-            return  Console.ReadLine();
-        }
+        //    Console.WriteLine("\nEnter Your Character Name\n");
+        //    return  Console.ReadLine();
+        //}
     }
 }

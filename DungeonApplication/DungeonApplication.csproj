@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Game.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\CharacterCreator\CharacterLibrary.csproj" />
     <ProjectReference Include="..\RoomLibrary\RoomLibrary.csproj" />
   </ItemGroup>

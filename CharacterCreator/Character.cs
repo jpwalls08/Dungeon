@@ -3,7 +3,7 @@
     public class Character
     {
         private string _name;
-        private int _damage;//hitChance
+        private int _hitchance;//hitChance
         private int _block;
         private int _maxHealth;//maxLife
         private int _minHealth;//life
@@ -14,10 +14,10 @@
             get { return _name; }
             set { _name = value; }
         }
-        public int Damage
+        public int HitChance
         {
-            get { return _damage; }
-            set { _damage = value; }
+            get { return _hitchance; }
+            set { _hitchance = value; }
         }//end Damage
         public int Block
         {
@@ -43,43 +43,44 @@
         {
 
         }
-       public Character(string name, int damage, int block, int maxHealth, int minHealth)
+       public Character(string name, int hitchance, int block, int maxHealth, int minHealth)
         {
             Name = name;
-            Damage = damage;
+            HitChance = hitchance;
             Block = block;
             MaxHealth = maxHealth;
             MinHealth = minHealth;
 
         } //end Character
 
-        public int CalcDamage()
+        public virtual int CalcDamage()
         {
             return 0;
         }
-        public int CalcBlock()
+        public virtual int CalcBlock()
         {
             return _block;
         }
-        public int CalcMaxHealth()
-        {
-            return _maxHealth;
-        }
-        public int CalcMinHealth()
-        {
-            return _minHealth;
-        }
+        //public int CalcMaxHealth()
+        //{
+        //    return _maxHealth;
+        //}
+        //public int CalcMinHealth()
+        //{
+        //    return _minHealth;
+        //}
 
         public override string ToString()
         {
             return string.Format("******** {0} ********\n" +
                 "Health: {1} of {2},\n" +
-                "Damage: {3}%\n" +
+                "HitChance: {3}%\n" +
                 "Block: {4}",
                 Name,
-                CalcMinHealth(),
-                CalcMaxHealth(),
-                CalcBlock());
+                MinHealth,
+                MaxHealth,//rename to life
+                HitChance,
+                CalcBlock());//overwritten
         }
         
      
