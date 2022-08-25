@@ -181,6 +181,37 @@ namespace DungeonApplication
 
             } while (exit);//end do
 
+            //Monster m = new Monster()
+            //{
+            //    Name = "Sauron",
+            //    RoomLevel = "[0]",
+            //    CalcDamage = new DateTime(2019, 1, 1)
+            //};
+            ////Namespace.CLassname
+            //Console.WriteLine(m);
+
+            ////Manually format or override the ToString()
+
+            ////Inferring the datatype with object initialization
+            //var s1 = new Monster() { Name = "John Smith", RoomLevel = "", StartDate = new DateTime(2022, 08, 25) };
+            ////the new .NET 6 / C# 10 way of using constructors.
+            //Monster s2 = new() { Name = "Jane Doe", RoomLevel = "Super Senior", StartDate = new DateTime(1999, 08, 01) };
+
+            //Practical application
+            //When we need a temporary collection of objects to manipulate and then discard,
+            //you can combine Object and Collection Initialization Syntaxes.
+            //NOTE: These objects will ONLY exist with the collection.
+
+            List<Monster> monsters = new List<Monster>()
+            {
+                new Monster() { /*Property Assignment (Name = "whatever", etc)*/},
+                
+            };
+            //perform some operation on the list (foreach, for example)
+            int index = new Random().Next(monsters.Count);
+            Monster s4 = monsters[index];
+            monsters.RemoveAt(index);
+
 
         }//end Main()
 
