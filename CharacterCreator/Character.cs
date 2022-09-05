@@ -53,22 +53,6 @@
 
         } //end Character
 
-        public virtual int CalcDamage()
-        {
-            return 0;
-        }
-        public virtual int CalcBlock()
-        {
-            return _block;
-        }
-        //public int CalcMaxHealth()
-        //{
-        //    return _maxHealth;
-        //}
-        //public int CalcMinHealth()
-        //{
-        //    return _minHealth;
-        //}
 
         public override string ToString()
         {
@@ -83,6 +67,18 @@
                 CalcBlock());//overwritten
         }
         
+        public virtual int CalcBlock()
+        {
+            return Block;
+        }
+        public virtual int CalcHitChance()
+        {
+            return HitChance;
+        }
+        public virtual int CalcDamage()
+        {
+            return 0;
+        }
      
 
 

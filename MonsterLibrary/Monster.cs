@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CharacterLibrary;
 
-namespace CharacterLibrary
+namespace MonsterLibrary
 {
     public class Monster : Character
     {
-
-
-
         public int MaxDamage { get; set; }
+
         public string Description { get; set; }
 
         private int _minDamage;
@@ -37,26 +31,34 @@ namespace CharacterLibrary
                 //_minDamage = value > MaxDamage || value < 1 ? 1 : value;
 
             }//end set
-        }
+        }//end MinDamage
 
-
-        public Monster(string name, int hitchance, int block, int maxHealth, int minHealth, int maxDamage, string description) : base(name, hitchance, block, maxHealth, minHealth)
+        public Monster(string name, int life, int maxLife, int hitChance, int block, int minDamage, int maxDamage, string description) : base(name, hitChance, block, maxLife, life)
         {
             MaxDamage = maxDamage;
-            MinHealth = minHealth;
+            MinDamage = minDamage;
             Description = description;
+            //Property = parameter
+        }//end FQ CTOR
+         //default constructor for a default monster
 
-        }
+
+        public override int CalcDamage()
+        {
+            //return base.CalcDamage();//returns 0, not what we want.
+            return new Random().Next(MinDamage, MaxDamage + 1);// +1 because it's exclusive
+        }//end CalcDamage()
+
         public Monster()
         {
-            Name = "Dragon";
-            HitChance = 15;
-            Block = 7;
-            MaxHealth = 25;
-            MinHealth = 25;
+            Name = "Smaug";
+            HitChance = 30;
+            Block = 45;
+            MaxHealth = 22;
+            MinHealth = 22;
             MaxDamage = 15;
-            MinDamage = 5;
-            Description = @"A fiery gust of flames emerges from the ashes, where the Dragon resides...
+            MinDamage = 8;
+            Description = @"A fiery gust of flames emerges from the ashes, where the infamous Smaug resides...
 
 
 
@@ -126,17 +128,34 @@ namespace CharacterLibrary
         Block: {Block}
         Description: {Description}";
         }
+        
 
-        public override int CalcDamage()
-        {
-            return new Random().Next(MinDamage, MaxDamage + 1);
-        }//end CalcDamage()
+
 
         public static Monster GetMonster()
         {
-            Monster m1 = new Monster();
-            return m1;            
-        }
+            
+            Monster smaug = new Monster();
+            Monster sauron = new Monster("Sauron", 35, 35, 65, 8, 14, 20, "In all my lifetime I have never layed eye's upon such a cruel and sinful being...\n" +
+                                         "The ruler of Mordor, Sauron!\n");
+            Monster orc = new Monster("Orc", 20, 20, 75, 10, 4, 7, "Orcs are a brutish, aggressive, ugly, and malevolent race of monsters\n");
+            Monster gollum = new Monster("Smeagle", 20, 20, 45, 20, 8, 15, "The last great dragon.\n");
+            Monster saruman = new Monster("Saruman", 25, 25, 50, 40, 12, 20, "Saruman was not born evil; rather, he has become corrupt out of arrogance and ambition\n");
+
+            List<Monster> monsters = new List<Monster>()
+            {
+                smaug, smaug,
+                sauron, sauron,
+                orc, orc, orc,
+                gollum, gollum, gollum,
+                saruman, saruman
+            };
+
+            
+            return monsters[new Random().Next(monsters.Count)];
+        }//end GetMonster()
+
     }
 
 }
+

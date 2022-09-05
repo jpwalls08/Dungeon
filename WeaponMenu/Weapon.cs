@@ -3,8 +3,8 @@
     public enum WeaponType
     {
         Sword,
-        Knife,
-        Mace,
+        Bow,
+        Axe,
         Spear,
     }
 
@@ -35,7 +35,7 @@
             get { return _bonusHitChance; }
             set { _bonusHitChance = value; }
         }
-        public WeaponType Type{ get; set; }
+        public WeaponType Type { get; set; }
 
         public Weapon(string name, int maxdamage, int minDamage, int bonusHitChance, bool TwoHanded, WeaponType type)
         {
@@ -44,7 +44,7 @@
             MinDamage = minDamage;
             BonusHitChance = bonusHitChance;
             IsTwoHanded = TwoHanded;
-            Type = type;            
+            Type = type;
         }
         public override string ToString()
         {
@@ -59,6 +59,31 @@
                 BonusHitChance,
                 IsTwoHanded ? "yes" : "no",
                 Type);
+        }
+
+        public static Weapon CreateWeapon(WeaponType type)
+        {
+            Weapon weapon = null;
+
+            switch (type)
+            {
+                case WeaponType.Bow:
+                    weapon  = new Weapon("Bow of Bregor", 6, 5, 8, true, WeaponType.Bow);
+                    break;
+
+                case WeaponType.Spear:
+                    weapon = new Weapon("Aeglos", 5, 2, 12, true, WeaponType.Spear);
+                    break;
+
+                case WeaponType.Sword: 
+                    weapon = new Weapon("Aranrúth", 8, 4, 5, true, WeaponType.Sword);
+                    break;
+
+                case WeaponType.Axe:
+                    weapon = new Weapon("Durin's Axe", 13, 1, 3, true, WeaponType.Axe);
+                    break;
+            }
+            return weapon;
         }
 
     }

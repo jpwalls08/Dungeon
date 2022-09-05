@@ -7,11 +7,23 @@ using WeaponMenu;
 
 namespace CharacterLibrary
 {
-    public class Player : Character
+    public sealed class Player : Character
     {
-        public Weapon EquippedWeapon { get; set; }
+        private Weapon _equippedWeapon;
 
-        public Race PlayerRace { get; set; }
+        private Race _playerRace;
+        public Weapon EquippedWeapon 
+        {
+            get { return _equippedWeapon; }
+            set { _equippedWeapon = value; }
+        }
+
+        public Race PlayerRace 
+        {
+            get { return _playerRace; }
+            set { _playerRace = value; }
+        }
+            
         public Player(string name, int hitchance, int block, int maxHealth, int minHealth, Weapon equippedWeapon, Race race) : base(name, hitchance, block, maxHealth, minHealth)
         {
             EquippedWeapon = equippedWeapon;
@@ -23,5 +35,26 @@ namespace CharacterLibrary
                 EquippedWeapon.Name +
                 "\nRace : " + PlayerRace;
         }
+
+        public override int CalcHitChance()
+        {
+            return base.CalcHitChance() + EquippedWeapon.BonusHitChance;
+        }
+
+        public override int CalcDamage()
+        {
+            //return base.CalcDamage();//0, we don't want it!
+            //Random Object
+            Random rand = new Random();
+
+            //Weapon has max and min damage
+            return rand.Next(EquippedWeapon.MinDamage, EquippedWeapon.MaxDamage + 1);
+
+            //int damage = rand.Next(EquippedWeapon.MinDamage, EquippedWeapon.MaxDamage + 1);
+            //return damage;
+            //long version
+
+        }
+
     }
 }
