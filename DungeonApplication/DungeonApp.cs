@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using CharacterLibrary;
 using MonsterLibrary;
 using WeaponMenu;
+using System.Media;
 
 namespace DungeonApplication
 {
@@ -15,8 +16,9 @@ namespace DungeonApplication
         static void Main(string[] args)
         {
 
-            //Game game = new Game();
-            //string name = game.GetUser();
+            SoundPlayer musicPlayer = new SoundPlayer();
+            musicPlayer.SoundLocation = AppDomain.CurrentDomain.BaseDirectory + "Gollums_Song.wav";
+            musicPlayer.PlayLooping();//will repeat when finished. .Play() plays once and stops.
             #region Old Loop
             //do
             //{
@@ -36,9 +38,9 @@ namespace DungeonApplication
             //    }
 
 
-            //    if (option == "Y")
+            //    if (option == "1 : 4")
             //    {
-            //        Console.WriteLine("You're a brave soul to embark on this journey");
+            //        Console.WriteLine("There is no denying that there is evil in this world but the light will always conquer the darkness.");
 
             //        break;// pulls and breaks out of iterator
             //    }
@@ -47,7 +49,8 @@ namespace DungeonApplication
             #endregion
 
 
-            //Console.WriteLine("Dungeon Looping");
+
+            #region Player Creator
             //TODO Create a player
 
             Console.WriteLine("Welcome traveler, may I ask whom I'm speaking with?\n");
@@ -66,11 +69,16 @@ namespace DungeonApplication
                     break;
 
             } while (true);
+            #endregion
 
+
+            #region Player Race & Weapon
 
             //TODO Create a player object - player customization?
 
             var races = Enum.GetValues(typeof(Race));
+            Console.WriteLine("\nSelect your kin, choose wisely.\n");
+
             foreach (var race in races)
             //{
             //    Console.WriteLine($"{index}) {race}");
@@ -79,20 +87,20 @@ namespace DungeonApplication
             {
                 Console.WriteLine($"{(int)race + 1} : {race}");//+1 displays in console
             }
-            Console.WriteLine("Select your kin, choose wisely.");
             string userInput = Console.ReadKey(true).KeyChar.ToString();
+            Console.Clear();
 
             int r = int.Parse(userInput) - 1;//key is reading a key and stores it in the propety
-            Console.Clear();
             Race race1 = (Race)r;//casting from an int(r) to a variable(Race)
-
+            Console.WriteLine($"\nAh, the {race1} is an excellent choice.\n\n");
+            //Console.WriteLine("");
             var weapons = Enum.GetValues(typeof(WeaponType));
-            foreach (var item in weapons)
 
+            Console.WriteLine("\nWhat will you wield?\n");
+            foreach (var item in weapons)
             {
                 Console.WriteLine($"{(int)item + 1} : {item}");
             }
-            Console.WriteLine("What will you wield?");
             userInput = Console.ReadKey(true).KeyChar.ToString();
 
             int w = int.Parse(userInput) - 1;
@@ -100,11 +108,15 @@ namespace DungeonApplication
 
             Weapon weapon = Weapon.CreateWeapon(type);
 
-            Player player = new Player(name, 55, 40, 35, 35, weapon, race1);
+            Player player = new Player(name, 30, 30, 35, 35, weapon, race1);
 
             Console.WriteLine(player.ToString());
             Console.Clear();
             bool exit = false;
+            #endregion
+
+
+            #region Generate Room & Monsters
 
             do
             {
@@ -112,19 +124,23 @@ namespace DungeonApplication
 
                 //generate a room
                 //TODO Implement GetRoom()
-                
+
                 string room = GetRoom();
                 Console.WriteLine(room);
 
                 //Monster monster = new Monster(); //selects specific monster
                 Monster monster = Monster.GetMonster(); //Random Monster
 
-                Console.WriteLine("You have stubbled upon..." + monster.Name); 
+                Console.WriteLine("You have stubbled upon..." + monster.Name);
 
                 bool reload = false;//boolean for inner loop. Reload new monster/room when true
 
                 //bool exit = true;//inner loop
                 //bool exit = false;//inner loop
+                #endregion
+
+
+                #region Player Options
 
                 do
                 {
@@ -133,7 +149,7 @@ namespace DungeonApplication
                         "B) Run Away\n" +
                         "C) Player Info\n" +
                         "D) Monster Info\n" +
-                        "E) Exit");
+                        "E) EXIT");
 
                     //ConsoleKey userAction = Console.ReadKey(true).Key;
                     string userAction = Console.ReadKey(true).Key.ToString().ToUpper();
@@ -154,6 +170,7 @@ namespace DungeonApplication
                         case "A":
                             Console.WriteLine("Attack");
                             int win = new Random().Next(101);
+                            //My.Computer.Audio(ConsoleKey);
 
 
                             Combat.DoBattle(player, monster);
@@ -197,6 +214,7 @@ namespace DungeonApplication
                         case "C":
                             Console.WriteLine("Player Info");//player
                             Console.WriteLine(player);
+                            Console.WriteLine("Enemies Defeated: " + score);
                             //1. TODO CountNumbers()
 
                             break;
@@ -225,6 +243,8 @@ namespace DungeonApplication
             Console.WriteLine("\n\nYour courage and bravery will live on! Press any key to exit...");
             Console.ReadKey();
         }//end Main()
+        #endregion
+
 
         private static string GetRoom()
         {
@@ -255,6 +275,7 @@ namespace DungeonApplication
             //return rooms[new Random().Next(rooms.Length)];
         }//end GetRoom
 
+        #region Assigning a Monster to a Room
 
         //if (reload == true)
         //{
@@ -296,6 +317,7 @@ namespace DungeonApplication
         //Monster s4 = monsters[index];
         //monsters.RemoveAt(index);
 
+        #endregion
 
     }//end Main()
 

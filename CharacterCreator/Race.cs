@@ -14,4 +14,6 @@ namespace CharacterLibrary
         Goblin,
         Hobbit
     }
+
+    //public Player(string name, int hitchance, int block, int maxHealth, int minHealth, Weapon equippedWeapon, Race race) : base(name, hitchance, block, maxHealth, minHealth);
 }

@@ -35,7 +35,7 @@ namespace MonsterLibrary
             else
             {
                 //attacker missed!
-                Console.ForegroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.Black;
                 Console.BackgroundColor = ConsoleColor.White;
                 Console.WriteLine($"{attacker.Name} missed!");
                 Console.ResetColor();

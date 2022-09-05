@@ -136,10 +136,11 @@ namespace MonsterLibrary
         {
             
             Monster smaug = new Monster();
-            Monster sauron = new Monster("Sauron", 35, 35, 65, 8, 14, 20, "In all my lifetime I have never layed eye's upon such a cruel and sinful being...\n" +
+            Monster sauron = new Monster("Sauron", 35, 35, 65, 8, 14, 23, "In all my lifetime I have never layed eye's upon such a cruel and sinful being..." +
                                          "The ruler of Mordor, Sauron!\n");
-            Monster orc = new Monster("Orc", 20, 20, 75, 10, 4, 7, "Orcs are a brutish, aggressive, ugly, and malevolent race of monsters\n");
-            Monster gollum = new Monster("Smeagle", 20, 20, 45, 20, 8, 15, "The last great dragon.\n");
+            Monster orc = new Monster("Orc", 15, 20, 75, 10, 4, 7, "Orcs are a brutish, aggressive, ugly, and malevolent race of monsters\n");
+            Monster gollum = new Monster("Smeagle", 20, 20, 45, 20, 8, 15, "Gollum is a slimy, skinny creature living in the middle of an underground lake " +
+                                         "underneath the Misty Mountains.\n");
             Monster saruman = new Monster("Saruman", 25, 25, 50, 40, 12, 20, "Saruman was not born evil; rather, he has become corrupt out of arrogance and ambition\n");
 
             List<Monster> monsters = new List<Monster>()

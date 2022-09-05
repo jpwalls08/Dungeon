@@ -31,6 +31,31 @@ namespace CharacterLibrary
         }
         public override string ToString()
         {
+            switch (PlayerRace)
+            {
+                case Race.Orc:
+                    MaxHealth += 10;
+                    break;
+                case Race.Elf:
+                    HitChance += (HitChance / 20); //hitchance * 1.05
+                    MaxHealth += 5;
+                    break;
+                case Race.Hobbit:
+                    Block += 15;
+                    HitChance += 5;
+                    break;
+                case Race.Dwarf:
+                    MaxHealth += 5;
+                    MinHealth += 5;
+                    Block += 5;
+                    break;
+                case Race.Goblin:
+                    MaxHealth += 5;
+                    MinHealth += 5;
+                    Block -= 5;
+                    break;
+            }//end switch
+
             return base.ToString() + "\nWeapon : " + 
                 EquippedWeapon.Name +
                 "\nRace : " + PlayerRace;

@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DungeonApplication", "Dunge
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeaponMenu", "WeaponMenu\WeaponMenu.csproj", "{DDEFC7B7-20FD-4E65-BF13-D248002EC6BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonsterLibrary", "MonsterLibrary\MonsterLibrary.csproj", "{7F030AAD-F171-4819-BD24-5F98E8B0C256}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonsterLibrary", "MonsterLibrary\MonsterLibrary.csproj", "{7F030AAD-F171-4819-BD24-5F98E8B0C256}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
