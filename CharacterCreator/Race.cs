@@ -8,10 +8,10 @@ namespace CharacterLibrary
 {
     public enum Race
     {
-        Orc,
+        Human,
         Elf,
         Dwarf,
-        Goblin,
+        Ent,
         Hobbit
     }
 

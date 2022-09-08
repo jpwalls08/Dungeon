@@ -57,9 +57,9 @@
         public override string ToString()
         {
             return string.Format("******** {0} ********\n" +
-                "Health: {1} of {2},\n" +
+                "Health: {1} of {2}\n" +
                 "HitChance: {3}%\n" +
-                "Block: {4}",
+                "Block: {4}%",
                 Name,
                 MinHealth,
                 MaxHealth,//rename to life

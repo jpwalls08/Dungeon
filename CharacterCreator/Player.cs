@@ -12,29 +12,29 @@ namespace CharacterLibrary
         private Weapon _equippedWeapon;
 
         private Race _playerRace;
-        public Weapon EquippedWeapon 
+        public Weapon EquippedWeapon
         {
             get { return _equippedWeapon; }
             set { _equippedWeapon = value; }
         }
 
-        public Race PlayerRace 
+        public Race PlayerRace
         {
             get { return _playerRace; }
             set { _playerRace = value; }
         }
-            
+
         public Player(string name, int hitchance, int block, int maxHealth, int minHealth, Weapon equippedWeapon, Race race) : base(name, hitchance, block, maxHealth, minHealth)
         {
             EquippedWeapon = equippedWeapon;
             PlayerRace = race;
-        }
-        public override string ToString()
-        {
+
+
             switch (PlayerRace)
             {
-                case Race.Orc:
-                    MaxHealth += 10;
+                case Race.Human:
+                    MaxHealth -= 10;
+                    MinHealth += 5;
                     break;
                 case Race.Elf:
                     HitChance += (HitChance / 20); //hitchance * 1.05
@@ -43,23 +43,58 @@ namespace CharacterLibrary
                 case Race.Hobbit:
                     Block += 15;
                     HitChance += 5;
+                    MinHealth -= 15;
                     break;
                 case Race.Dwarf:
                     MaxHealth += 5;
                     MinHealth += 5;
                     Block += 5;
                     break;
-                case Race.Goblin:
+                case Race.Ent:
                     MaxHealth += 5;
-                    MinHealth += 5;
+                    MinHealth -= 5;
                     Block -= 5;
                     break;
             }//end switch
-
-            return base.ToString() + "\nWeapon : " + 
-                EquippedWeapon.Name +
-                "\nRace : " + PlayerRace;
         }
+
+
+
+
+
+        public override string ToString()
+        {
+            string description = "";
+            switch (PlayerRace)
+            {
+                case Race.Human:
+                    description = "Human";
+                    break;
+
+                case Race.Elf:
+                    description = "Elf";
+                    break;
+
+                case Race.Hobbit:
+                    description = "Hobbit";
+                    break;
+
+                case Race.Dwarf:
+                    description = "Dwarf";
+                    break;
+
+                case Race.Ent:
+                    description = "Ent";
+                    break;
+            }
+            return base.ToString() +
+                "\nRace: " + PlayerRace +
+            "\nWeapon: " +
+                EquippedWeapon.ToString();
+                
+        }
+
+
 
         public override int CalcHitChance()
         {

@@ -90,7 +90,7 @@ namespace DungeonApplication
             string userInput = Console.ReadKey(true).KeyChar.ToString();
             Console.Clear();
 
-            int r = int.Parse(userInput) - 1;//key is reading a key and stores it in the propety
+            int r = int.Parse(userInput) - 1;//key is reading a key and stores it in the property
             Race race1 = (Race)r;//casting from an int(r) to a variable(Race)
             Console.WriteLine($"\nAh, the {race1} is an excellent choice.\n\n");
             //Console.WriteLine("");
@@ -108,7 +108,7 @@ namespace DungeonApplication
 
             Weapon weapon = Weapon.CreateWeapon(type);
 
-            Player player = new Player(name, 30, 30, 35, 35, weapon, race1);
+            Player player = new Player(name, 30, 3, 30, 30, weapon, race1);
 
             Console.WriteLine(player.ToString());
             Console.Clear();
@@ -168,7 +168,7 @@ namespace DungeonApplication
                     {
 
                         case "A":
-                            Console.WriteLine("Attack");
+                            Console.WriteLine("Attack\n");
                             int win = new Random().Next(101);
                             //My.Computer.Audio(ConsoleKey);
 
@@ -199,10 +199,17 @@ namespace DungeonApplication
 
                             if (player.MinHealth <= 0)
                             {
-                                Console.ForegroundColor = ConsoleColor.Red;
-                                Console.WriteLine($"\nYou were no match for {monster.Name}!\a");
+
+                                Console.WriteLine($"\nYou were no match for {monster.Name}!\n", Console.ForegroundColor = ConsoleColor.Red);
                                 exit = true;//leave the ENTIRE game!
                             }//end if player died
+                            
+
+                            else if (player.MinHealth <= 5)
+                            {
+                                Console.WriteLine("\nI suggest you runaway for you are near death!", Console.ForegroundColor = ConsoleColor.DarkYellow);
+                                Console.ResetColor();
+                            }
                             break;
 
                         case "B":
@@ -212,11 +219,12 @@ namespace DungeonApplication
                             break;
 
                         case "C":
-                            Console.WriteLine("Player Info");//player
+                            Console.WriteLine("Player Info:\n");//player
                             Console.WriteLine(player);
-                            Console.WriteLine("Enemies Defeated: " + score);
-                            //1. TODO CountNumbers()
 
+                            Console.WriteLine("Enemies Defeated: " + score, Console.ForegroundColor = ConsoleColor.Red);
+                            Console.ResetColor();
+                            //1. TODO CountNumbers()
                             break;
 
                         case "D":
@@ -229,7 +237,8 @@ namespace DungeonApplication
                         case "E":
                         case "Esc":
                         case "End":
-                            Console.WriteLine("We live to fight another day!");
+                            Console.WriteLine("We live to fight another day!\n\n", Console.ForegroundColor = ConsoleColor.Yellow);
+                            Console.ResetColor();
                             //Console.ReadLine();
                             exit = true;//
 
@@ -237,10 +246,12 @@ namespace DungeonApplication
 
                     }//end switch
                 } while (!exit && !reload);
+                Console.ResetColor();
 
             } while (!exit);
-            Console.WriteLine("You defeated " + score + " monster" + (score == 1 ? "." : "s."));
-            Console.WriteLine("\n\nYour courage and bravery will live on! Press any key to exit...");
+            Console.WriteLine("You defeated " + score + " monster" + (score == 1 ? "." : "s."), Console.BackgroundColor = ConsoleColor.Red, Console.ForegroundColor = ConsoleColor.Black);
+            Console.ResetColor();
+            Console.WriteLine("Your courage and bravery will live on! Press any key to exit...");
             Console.ReadKey();
         }//end Main()
         #endregion

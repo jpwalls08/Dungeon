@@ -53,7 +53,7 @@ namespace MonsterLibrary
         {
             Name = "Smaug";
             HitChance = 30;
-            Block = 45;
+            Block = 6;
             MaxHealth = 22;
             MinHealth = 22;
             MaxDamage = 15;
@@ -125,7 +125,7 @@ namespace MonsterLibrary
         {Name}
         Life: {MinHealth} of {MaxHealth}
         Damage: {MinDamage} to {MaxDamage}
-        Block: {Block}
+        Block: {Block}%
         Description: {Description}";
         }
         
@@ -136,12 +136,12 @@ namespace MonsterLibrary
         {
             
             Monster smaug = new Monster();
-            Monster sauron = new Monster("Sauron", 35, 35, 65, 8, 14, 23, "In all my lifetime I have never layed eye's upon such a cruel and sinful being..." +
+            Monster sauron = new Monster("Sauron", 35, 35, 65, 10, 14, 23, "In all my lifetime I have never layed eye's upon such a cruel and sinful being..." +
                                          "The ruler of Mordor, Sauron!\n");
             Monster orc = new Monster("Orc", 15, 20, 75, 10, 4, 7, "Orcs are a brutish, aggressive, ugly, and malevolent race of monsters\n");
-            Monster gollum = new Monster("Smeagle", 20, 20, 45, 20, 8, 15, "Gollum is a slimy, skinny creature living in the middle of an underground lake " +
+            Monster gollum = new Monster("Smeagle", 20, 20, 45, 5, 8, 15, "Gollum is a slimy, skinny creature living in the middle of an underground lake " +
                                          "underneath the Misty Mountains.\n");
-            Monster saruman = new Monster("Saruman", 25, 25, 50, 40, 12, 20, "Saruman was not born evil; rather, he has become corrupt out of arrogance and ambition\n");
+            Monster saruman = new Monster("Saruman", 25, 25, 50, 8, 12, 20, "Saruman was not born evil; rather, he has become corrupt out of arrogance and ambition\n");
 
             List<Monster> monsters = new List<Monster>()
             {
